@@ -63,7 +63,7 @@ void MPUOffset::Initialize()
     Serial.println("Testing device connections...");
     Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
     accelgyro.setDLPFMode(MPU6050_DLPF_BW_5);
-      int Offset[6];
+      int Offset[6] = {0, 0, 0, 0, 0, 0};
 
     SetOffsets(Offset);
   } // Initialize
