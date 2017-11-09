@@ -2926,6 +2926,7 @@ void MPU6050_Base::setFIFOByte(uint8_t data)
  */
 uint8_t MPU6050_Base::getDeviceID()
 {
+    I2Cdev::readByte(devAddr, 0x00, buffer);    // bug workaround
     I2Cdev::readBits(devAddr, MPU6050_RA_WHO_AM_I, MPU6050_WHO_AM_I_BIT, MPU6050_WHO_AM_I_LENGTH, buffer);
     return buffer[0];
 }
